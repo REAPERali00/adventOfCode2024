@@ -6,19 +6,19 @@ class Advent:
     def __init__(self) -> None: ...
 
     def distance_calc(self, list1: List[int], list2: List[int]) -> int:
-        total_distance: int = 0
         list1.sort()
         list2.sort()
-        for i in range(len(list1)):
-            total_distance += abs(list1[i] - list2[i])
-        return total_distance
+        # total_distance: int = 0
+        # for i in range(len(list1)):
+        #     total_distance += abs(list1[i] - list2[i])
+        # return total_distance
+        return sum(abs(l - r) for l, r in zip(list1, list2))
 
     def distance_calc_part2(self, list1: List[int], list2: List[int]) -> int:
         total_distance: int = 0
         count_list = Counter(list2)
         for val in list1:
-            if val in count_list:
-                total_distance += val * count_list[val]
+            total_distance += val * count_list[val]
         return total_distance
 
 
@@ -29,6 +29,7 @@ if __name__ == "__main__":
 
     with open("input.txt", "r") as input:
         for line in input:
+            # print(nums(line))
             (part1, part2) = line.strip().split()
             list1.append(int(part1))
             list2.append(int(part2))
