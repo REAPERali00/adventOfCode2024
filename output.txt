@@ -1,3 +1,2 @@
-the total data is: 1000
-the safe number of reports in part 1 is: 218
-the safe number of reports in part 2 is: 314
+Part 1 soution: 218
+Part 2 soution: 290
