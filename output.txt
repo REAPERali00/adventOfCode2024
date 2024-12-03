@@ -1,2 +1,2 @@
-Part 1 soution: 218
-Part 2 soution: 290
+the part 1 answer is : 187825547
+the part 2 answer is : 85508223

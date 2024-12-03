@@ -18,7 +18,7 @@ class TestAdvent(unittest.TestCase):
         ans = self.advent.distance_calc_part2(l1, l2)
         self.assertEqual(ans, 31)
 
-    def test_analyse_part1(self):
+    def test_day2_part1(self):
         data = [
             [7, 6, 4, 2, 1],
             [1, 2, 7, 8, 9],
@@ -29,7 +29,7 @@ class TestAdvent(unittest.TestCase):
         ]
         self.assertEqual(self.advent.analys_report_part1(data), 2)
 
-    def test_analyse_part2(self):
+    def test_day2_part2(self):
         data = [
             [7, 6, 4, 2, 1],
             [1, 2, 7, 8, 9],
@@ -38,7 +38,15 @@ class TestAdvent(unittest.TestCase):
             [8, 6, 4, 4, 1],
             [1, 3, 6, 7, 9],
         ]
-        self.assertEqual(self.advent.analys_report_part2(data), 4)
+        self.assertEqual(sum(self.advent.analys_report_part2(r) for r in data), 4)
+
+    def test_day3_part1(self):
+        data = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
+        self.assertEqual(self.advent.find_operations_part1(data), 161)
+
+    def test_day3_part2(self):
+        data = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
+        self.assertEqual(self.advent.find_operations_part2(data), 48)
 
 
 if __name__ == "__main__":
