@@ -98,7 +98,6 @@ def day3():
     data = []
 
     with open("input.txt", "r") as input:
-        # map will apply the int function to all strings
         data = input.read()
         ans_part1 = advent.find_operations_part1(data)
         ans_part2 = advent.find_operations_part2(data)
@@ -106,5 +105,13 @@ def day3():
         print(f"the part 2 answer is : {ans_part2}")
 
 
+def day4():
+    advent = Advent()
+    data = []
+
+    with open("input.txt", "r") as input:
+        data = input.read()
+
+
 if __name__ == "__main__":
-    day3()
+    day4()
