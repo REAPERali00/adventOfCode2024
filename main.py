@@ -106,6 +106,9 @@ class Advent:
 
         return tot
 
+    def page_order_part1(self, data):
+        pass
+
 
 def day1():
     advent = Advent()
@@ -159,6 +162,11 @@ def day4():
         print(f"Part1 answer is {ans}")
         ans = advent.search_word_part2(data)
         print(f"Part2 answer is {ans}")
+
+
+def day5():
+    advent = Advent()
+    data = []
 
 
 if __name__ == "__main__":
