@@ -1,6 +1,7 @@
 from typing import List
 import re
-from collections import Counter
+from collections import Counter, defaultdict
+from queue import Queue
 
 
 class Advent:
@@ -106,8 +107,42 @@ class Advent:
 
         return tot
 
-    def page_order_part1(self, data):
-        pass
+    def is_page_sorted(self, rules, page) -> bool:
+        for i, num in enumerate(page):
+            if num in rules:
+                exists = set(page[:i]) & set(rules[num])
+                if exists:
+                    return False
+        return True
+
+    def page_order_part1(self, rules, pages) -> int:
+        tot = 0
+        mid = 0
+
+        for page in pages:
+            mid = page[len(page) // 2]
+            if not self.is_page_sorted(rules, page):
+                mid = 0
+            tot += mid
+
+        return tot
+
+    def page_order_part2(self, rules, pages) -> int:
+        # create a queue, check if there is any instance in kyes map in common with  the queues
+        # numbers. if yes, pop till the first from left in common, push the new value and then push the rest.
+        tot = 0
+        mid = 0
+
+        for page in pages:
+            if self.is_page_sorted(rules, page):
+                continue
+            sorted = Queue()
+            for i, num in enumerate(page): 
+                while 
+
+
+
+        return tot
 
 
 def day1():
@@ -166,8 +201,27 @@ def day4():
 
 def day5():
     advent = Advent()
-    data = []
+    read_mode_rule = True
+    pages = []
+    rules = defaultdict(list)
+
+    with open("input.txt", "r") as input:
+        for line in input:
+            line = line.strip()  # Remove leading/trailing whitespace, including newline
+            if line == "":
+                read_mode_rule = False
+                continue
+
+            if read_mode_rule:
+                left, right = map(int, line.split("|"))
+                rules[left].append(right)
+            else:
+                pages.append(list(map(int, line.split(","))))  # print(rules)
+        ans = advent.page_order_part1(rules, pages)
+        print(f"Part 1 answer is {ans}")
+        ans = advent.page_order_part2(rules, pages)
+        print(f"Part 2 answer is {ans}")
 
 
 if __name__ == "__main__":
-    day4()
+    day5()
