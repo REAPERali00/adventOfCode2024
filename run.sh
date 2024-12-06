@@ -7,4 +7,4 @@ function t() {
   cat output.txt
 }
 
-t
+m
