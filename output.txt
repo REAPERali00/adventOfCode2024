@@ -1,13 +1,2 @@
-.........F
-======================================================================
-FAIL: test_day5_part2 (__main__.TestAdvent.test_day5_part2)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/alireza/Documents/advent/test.py", line 121, in test_day5_part2
-    self.assertEqual(self.advent.page_order_part2(rules, pages), 143)
-AssertionError: 0 != 143
-
-----------------------------------------------------------------------
-Ran 10 tests in 0.004s
-
-FAILED (failures=1)
+Part 1 answer is 4281
+Part 2 answer is 5466

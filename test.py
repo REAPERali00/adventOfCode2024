@@ -118,7 +118,7 @@ class TestAdvent(unittest.TestCase):
             [61, 13, 29],
             [97, 13, 75, 29, 47],
         ]
-        self.assertEqual(self.advent.page_order_part2(rules, pages), 143)
+        self.assertEqual(self.advent.page_order_part2(rules, pages), 123)
 
 
 if __name__ == "__main__":

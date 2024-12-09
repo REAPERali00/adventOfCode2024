@@ -1,6 +1,6 @@
 from typing import List
 import re
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 from queue import Queue
 
 
@@ -131,16 +131,19 @@ class Advent:
         # create a queue, check if there is any instance in kyes map in common with  the queues
         # numbers. if yes, pop till the first from left in common, push the new value and then push the rest.
         tot = 0
-        mid = 0
 
         for page in pages:
             if self.is_page_sorted(rules, page):
                 continue
-            sorted = Queue()
-            for i, num in enumerate(page): 
-                while 
-
-
+            sorted = deque()
+            for num in page:
+                temp = []
+                while num in rules and (set(sorted) & set(rules[num])):
+                    temp.append((sorted.pop()))
+                sorted.append(num)
+                temp.reverse()
+                sorted.extend(temp)
+            tot += sorted[len(sorted) // 2]
 
         return tot
 
