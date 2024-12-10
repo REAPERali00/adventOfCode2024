@@ -120,6 +120,21 @@ class TestAdvent(unittest.TestCase):
         ]
         self.assertEqual(self.advent.page_order_part2(rules, pages), 123)
 
+    def test_day6_part1(self):
+        data = [
+            "....#.....",
+            ".........#",
+            "..........",
+            "..#.......",
+            ".......#..",
+            "..........",
+            ".#..^.....",
+            "........#.",
+            "#.........",
+            "......#...",
+        ]
+        self.assertEqual(self.advent.guard_gallivant_part1(data), 41)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -147,6 +147,44 @@ class Advent:
 
         return tot
 
+    def guard_gallivant_part1(self, data) -> int:
+        tot = 0
+        next = "up"
+        guard = ["^", ">", "v", "<"]
+        state = 0
+        # get location of guard
+        positions = [
+            (i, j)
+            for i, row in enumerate(data)
+            for j, char in enumerate(row)
+            if char == "^"
+        ]
+        i, j = positions[0]
+        data = [list(row) for row in data]
+        while 0 <= i < len(data) - 1 and 0 <= j < len(data[0]) - 1:
+            state %= 4
+            data[i][j] = "X"
+            match guard[state]:
+                case "^":
+                    next = data[i - 1][j]
+                    state += 1 if next == "#" else 0
+                    i -= 1 if next != "#" else 0
+                case ">":
+                    next = data[i][j + 1]
+                    state += 1 if next == "#" else 0
+                    j += 1 if next != "#" else 0
+                case "v":
+                    next = data[i + 1][j]
+                    state += 1 if next == "#" else 0
+                    i += 1 if next != "#" else 0
+                case "<":
+                    next = data[i][j - 1]
+                    state += 1 if next == "#" else 0
+                    j -= 1 if next != "#" else 0
+
+        tot = sum(row.count("X") for row in data) + 1
+        return tot
+
 
 def day1():
     advent = Advent()
@@ -226,5 +264,15 @@ def day5():
         print(f"Part 2 answer is {ans}")
 
 
+def day6():
+    advent = Advent()
+    data = []
+    with open("input.txt", "r") as input:
+        for line in input:
+            data.append(line)
+    ans = advent.guard_gallivant_part1(data)
+    print(f"Part 1 answer is {ans}")
+
+
 if __name__ == "__main__":
-    day5()
+    day6()
